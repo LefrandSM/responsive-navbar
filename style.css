@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+/* navbar */
+nav {
+    background-color: rgb(21, 140, 209);
+    color: rgb(199, 235, 255);
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+nav h1 {
+    z-index: 2;
+}
+nav ul {
+    display: flex;
+    width: 35%;
+    list-style: none;
+    justify-content: space-between;
+}
+nav ul li a {
+    text-decoration: none;
+    color: rgb(199, 235, 255);
+}
+nav ul li a:hover {
+    color: rgb(242, 251, 255);
+}
+
+
+
+/* burger menu */
+.button-toggle {
+    height: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+.button-toggle span {
+    width: 25px;
+    height: 3px;
+    display: block;
+    background-color: rgb(199, 235, 255);
+    transition: All 0.5s;
+}
+.button-toggle input {
+    position: absolute;
+    opacity: 0;
+    height: 23px;
+    width: 23px ;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* animation burger menu */
+.button-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.button-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.button-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg);
+} 
+.button-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg);
+}
+.button-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+} 
+
+
+
+
+
+/* Responsive */
+
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        background-color: rgb(21, 140, 209);
+        z-index: 1;
+        width: 80%;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        justify-content: space-around;
+        align-items: center;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: All 0.5s;
+    }
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .button-toggle {
+        display: flex;
+    }
+}
+
+
